@@ -4,12 +4,12 @@
 
 ## Usage
 
-### curl
+### `curl`
 ```bash
 curl -sSL https://raw.githubusercontent.com/fabiocaccamo/django-quickstart/refs/heads/main/scripts/quickstart.sh | bash -s "your_project_name"
 ```
 
-### wget
+### `wget`
 ```bash
 wget -qO- https://raw.githubusercontent.com/fabiocaccamo/django-quickstart/refs/heads/main/scripts/quickstart.sh | bash -s "your_project_name"
 ```
