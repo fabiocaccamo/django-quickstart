@@ -1,5 +1,7 @@
 #!/bin/bash
 
+PROJECT_NAME=$1
+
 # create project directory and navigate into it
 mkdir $PROJECT_NAME && cd $PROJECT_NAME
 
