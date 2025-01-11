@@ -1,30 +1,5 @@
 #!/bin/bash
 
-# validate project name function
-validate_project_name() {
-    local name="$1"
-    [[ "$name" =~ ^[a-zA-Z0-9_-]+$ ]]
-}
-
-# prompt for the project name until a valid one is found
-PROJECT_NAME=$1
-while true; do
-    if [ -d "$PROJECT_NAME" ]; then
-        # invalid project name: existing directory
-        echo "Directory '$PROJECT_NAME' already exists, please choose another project name."
-        echo "Allowed characters: (letters, digits, '_' or '-'):"
-        read PROJECT_NAME
-    elif ! validate_project_name "$PROJECT_NAME"; then
-        # invalid project name: disallowed characters
-        echo "Enter a valid project name."
-        echo "Allowed characters: (letters, digits, '_' or '-'):"
-        read PROJECT_NAME
-    else
-        # valid project name
-        break
-    fi
-done
-
 # create project directory and navigate into it
 mkdir $PROJECT_NAME && cd $PROJECT_NAME
 
@@ -46,7 +21,7 @@ echo "Django==$(python -m django --version)" >> requirements.txt
 
 # create django project inside src folder
 mkdir src
-django-admin startproject app src
+django-admin startproject core src
 cd src
 
 # init git repository
@@ -62,7 +37,7 @@ python3 manage.py migrate
 DJANGO_SUPERUSER_USERNAME=admin DJANGO_SUPERUSER_EMAIL=admin@example.com DJANGO_SUPERUSER_PASSWORD=admin python3 manage.py createsuperuser --noinput
 
 # add static and media settings
-cat <<EOF >> app/settings.py
+cat <<EOF >> core/settings.py
 
 STATIC_ROOT = BASE_DIR.parent / "public" / "static"
 STATIC_URL = "static/"
