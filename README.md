@@ -1,9 +1,9 @@
 # django-quickstart
 
-💻 🦄 Quick start a Django project locally and launch it with a single command.
+:unicorn: :rocket: Quick start a Django project locally and launch it with a single command.
 
 ## Requirements
-- :globe_with_meridians: `curl` or `wget`
+- :computer: `curl` or `wget`
 - :snake: `python`
 - :octocat: `git`
 
